@@ -110,6 +110,16 @@ void	testAddNumberRangeIntBounds( void ) {
 	assert(sp.longestSpan() == static_cast<unsigned int>(INT_MAX) - static_cast<unsigned int>(INT_MIN));
 }
 
+void	testHugeSpan( void ) {
+	Span sp = Span(500000);
+	std::vector<int> v;
+	for (int i = 0; i < 500000; i++)
+		v.push_back(i);
+	sp.addNumber(v.begin(), v.end());
+	assert(sp.shortestSpan() == 1);
+	assert(sp.longestSpan() == 499999);
+}
+
 int main( void ) {
 	testAddNumber();
 	testShortestSpan();
@@ -120,6 +130,7 @@ int main( void ) {
 	testAddNumberRangeOneElement();
 	testAddNumberRangeTwoElements();
 	testAddNumberRangeIntBounds();
+	testHugeSpan();
 	std::cout << "All tests passed!" << std::endl;
 	return 0;
 }
