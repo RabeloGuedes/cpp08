@@ -51,7 +51,7 @@ unsigned int	Span::shortestSpan( void ) {
 	std::vector<int> sorted = _span;
 	std::sort(sorted.begin(), sorted.end());
 	std::vector<int>::iterator it = sorted.begin();
-	unsigned int span = UINT_MAX;
+	unsigned int span = std::numeric_limits<unsigned int>::max();
 
 	while (it != sorted.end() - 1) {
 		if (span > static_cast<unsigned int>(*(it + 1)) - static_cast<unsigned int>(*it))

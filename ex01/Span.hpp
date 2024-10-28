@@ -5,6 +5,7 @@
 # include <vector>
 # include <exception>
 # include <algorithm>
+# include <limits>
 
 class Span {
 	private:

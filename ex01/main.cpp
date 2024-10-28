@@ -103,11 +103,14 @@ void	testAddNumberRangeTwoElements( void ) {
 void	testAddNumberRangeIntBounds( void ) {
 	Span sp = Span(5);
 	std::vector<int> v;
-	v.push_back(INT_MAX);
-	v.push_back(INT_MIN);
+	int	max = std::numeric_limits<int>::max();
+	int	min = std::numeric_limits<int>::min();
+
+	v.push_back(max);
+	v.push_back(min);
 	sp.addNumber(v.begin(), v.end());
-	assert(sp.shortestSpan() == static_cast<unsigned int>(INT_MAX) - static_cast<unsigned int>(INT_MIN));
-	assert(sp.longestSpan() == static_cast<unsigned int>(INT_MAX) - static_cast<unsigned int>(INT_MIN));
+	assert(sp.shortestSpan() == static_cast<unsigned int>(max) - static_cast<unsigned int>(min));
+	assert(sp.longestSpan() == static_cast<unsigned int>(max) - static_cast<unsigned int>(min));
 }
 
 void	testHugeSpan( void ) {
